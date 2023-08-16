@@ -1,0 +1,53 @@
+﻿@model List<Employee>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a class="btn btn-primary" asp-controller="Employee" asp-action="Add">Add Employee</a>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Activity
+                </th>
+                <th>
+                    Details
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Employee in Model)
+            {
+                <tr>
+                    <td id="row-id">@Employee.Id</td>
+                    <td>@Employee.Name</td>
+                    <td>@Employee.Age</td>
+                    @if (Employee.Active)
+                    {
+                        <td class="text-success">Aktiv</td>
+                    } 
+                    else
+                    {
+                        <td class="text-danger">Passive</td>
+                    }
+                    <td><a class="btn btn-primary" asp-action="Details" asp-controller="Employee" asp-route-id="@Employee.Id">Details</a></td>
+                    <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Employee" asp-route-id="@Employee.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

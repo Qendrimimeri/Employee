@@ -1,0 +1,19 @@
+﻿@model Employee;
+
+<form asp-action="Add" asp-controller="Employee">
+    <div class="mb-3">
+        <label asp-for=Name class="form-label">Name</label>
+        <input asp-for=Name class="form-control"  aria-describedby="emailHelp">
+        <span asp-validation-for=Name  class="form-text"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label">Age</label>
+        <input asp-for="Age" class="form-control">
+        <span asp-validation-for="Age" class="form-text"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for=Active type="checkbox" class="form-check-input" >
+        <label asp-for=Active class="form-check-label" >Is Active</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
